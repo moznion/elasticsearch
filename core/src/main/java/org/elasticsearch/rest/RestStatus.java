@@ -501,6 +501,10 @@ public enum RestStatus {
         return status;
     }
 
+    public boolean isSuccess() {
+        return 200 <= status && status <= 299;
+    }
+
     public static RestStatus readFrom(StreamInput in) throws IOException {
         return RestStatus.valueOf(in.readString());
     }
